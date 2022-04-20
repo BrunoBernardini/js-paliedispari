@@ -12,3 +12,31 @@
   Dichiariamo chi ha vinto.
   Bonus: L’inserimento avviene tramite un campo input
  */
+
+const btnPalindroma = document.querySelector("#btnPalindroma");
+const btnPariDispari = document.querySelector("#btnPariDispari");
+
+btnPalindroma.addEventListener("click", function(){
+  if(isPalindroma(document.getElementById("parolaPalindroma").value)){
+    outputInClass(".palindromaOutput", "Sì! :D");
+  }
+  else{
+    outputInClass(".palindromaOutput", "No! :c");
+  }
+});
+
+function isPalindroma(word){
+  let palindroma = true;
+  for(let i=0; i<word.length/2; i++){
+    if(word.charAt(i) !== word.charAt(word.length-(i+1))) palindroma = false;
+  }
+  return palindroma;
+}
+
+function outputInClass(tagClass, content){
+  document.querySelector(tagClass).innerHTML = content;
+}
+
+// let parola = document.getElementById("parolaPalindroma").value;
+// let selPariDispari = document.getElementById("selPariDispari").value;
+// let numero = document.getElementById("numero").value;
