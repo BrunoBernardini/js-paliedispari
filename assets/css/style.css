@@ -1,0 +1,22 @@
+body{
+  background-color: rgb(255, 217, 0);
+  color: white;
+}
+
+h1{
+  font-weight: bolder;
+}
+
+.wrapper{
+  height: 100vh;
+}
+
+.custom-box{
+  background-color: rgb(255, 102, 0);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+}
+
+.box-half{
+  height: 50%;
+}
