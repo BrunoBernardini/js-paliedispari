@@ -16,6 +16,8 @@
 const btnPalindroma = document.querySelector("#btnPalindroma");
 const btnPariDispari = document.querySelector("#btnPariDispari");
 
+// -----------{Pulsanti}-----------
+
 btnPalindroma.addEventListener("click", function(){
   if(isPalindroma(document.getElementById("parolaPalindroma").value)){
     outputInClass(".palindromaOutput", "Sì! :D");
@@ -25,6 +27,30 @@ btnPalindroma.addEventListener("click", function(){
   }
 });
 
+btnPariDispari.addEventListener("click", function(){
+  const min = 1, max = 5, numero = parseInt(document.getElementById("numero").value);
+  const pariDispari = document.getElementById("selPariDispari").value
+
+  if(numero<min || numero>max){
+    outputInClass(".pariDispariOutput", "Devi inserire un numero da 1 a 5!")
+  }
+  else{
+    const random = getRandomNumber(min,max);
+    let sum = numero+random;
+    let result = `Numero inserito: ${numero}; Numero random: ${random}; Somma: ${sum} [${isPari(sum)}]`;
+
+    if(isPari(sum) === pariDispari){
+      result +="<br>Hai vinto!";
+    }
+    else{
+      result +="<br>Hai perso!";
+    }
+    document.querySelector(".pariDispariOutput").innerHTML = result;
+  }
+})
+
+// -----------{Funzioni principali}-----------
+
 function isPalindroma(word){
   let palindroma = true;
   for(let i=0; i<word.length/2; i++){
@@ -33,10 +59,21 @@ function isPalindroma(word){
   return palindroma;
 }
 
+function getRandomNumber(min, max){
+  return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+function isPari(number){
+  if(!(number%2)){
+    return "pari"
+  }
+  else{
+    return "dispari"
+  }
+}
+
+// -----------{Utility}-----------
+
 function outputInClass(tagClass, content){
   document.querySelector(tagClass).innerHTML = content;
 }
-
-// let parola = document.getElementById("parolaPalindroma").value;
-// let selPariDispari = document.getElementById("selPariDispari").value;
-// let numero = document.getElementById("numero").value;

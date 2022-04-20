@@ -20,3 +20,8 @@ h1{
 .box-half{
   height: 50%;
 }
+
+.palindromaOutput,
+.pariDispariOutput{
+  font-weight: bolder;
+}
